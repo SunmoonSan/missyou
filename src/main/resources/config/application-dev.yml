@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  # 数据源配置，请修改为你项目的实际配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/missyou?useSSL=false&serverTimezone=UTC&characterEncoding=UTF8
+    username: root
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
