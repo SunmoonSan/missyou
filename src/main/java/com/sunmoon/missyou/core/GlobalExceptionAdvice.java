@@ -32,7 +32,7 @@ public class GlobalExceptionAdvice {
     public UnifyResponse handleException(HttpServletRequest req, Exception e) {
         String url = req.getRequestURL().toString();
         String method = req.getMethod();
-        UnifyResponse m = new UnifyResponse(9999, "服务器异常", method + " " + url);
+        UnifyResponse m = new UnifyResponse(9999, e.getMessage(), method + " " + url);
         System.out.println(e);
         return m;
     }

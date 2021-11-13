@@ -7,7 +7,6 @@ import com.sunmoon.missyou.service.SpuService;
 import com.sunmoon.missyou.util.CommonUtil;
 import com.sunmoon.missyou.vo.PagingDozer;
 import com.sunmoon.missyou.vo.SpuSimplifyVO;
-import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
@@ -42,7 +41,7 @@ public class SpuController {
     }
 
     @GetMapping("/by/category/{id}")
-    public PagingDozer<Spu, SpuSimplifyVO> getByCategoryId(@PathVariable @Positive Long id,
+    public PagingDozer<Spu, SpuSimplifyVO> getByCategoryId(@PathVariable @Positive(message = "{id.positive}") Long id,
                                                            @RequestParam(name = "is_root", defaultValue = "false") Boolean isRoot,
                                                            @RequestParam(name = "start", defaultValue = "1") Integer start,
                                                            @RequestParam(name = "count", defaultValue = "10") Integer count) {
