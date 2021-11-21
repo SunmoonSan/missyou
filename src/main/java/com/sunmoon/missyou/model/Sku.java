@@ -1,15 +1,16 @@
 package com.sunmoon.missyou.model;
 
+import com.sunmoon.missyou.util.ListAndJson;
+import com.sunmoon.missyou.util.MapAndJson;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author San
@@ -28,9 +29,13 @@ public class Sku extends BaseEntity {
     private String img;
     private String title;
     private Long spuId;
-//    private Object specs;
-    private String code;
-    private int stock;
     private Long categoryId;
     private Long rootCategoryId;
+
+    @Convert(converter = ListAndJson.class)
+    private String specs;
+    //    @Convert(converter = MapAndJson.class)
+//    private Map<String, Object> test;
+    private String code;
+    private int stock;
 }
